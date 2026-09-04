@@ -6,8 +6,9 @@ Users can sign up, log in, create text/image/text+image posts, like and comment 
 
 > UI is inspired by the general concept of a social feed (similar to TaskPlanet's Social Page) but is an original implementation. No proprietary code, branding, logos, or assets were copied.
 
-**Live Website:** [https://pulse-mini-social-app.vercel.app]
-
+**Live Website:** https://pulse-mini-social-app.vercel.app
+**Backend API:** https://pulse-mini-social-app.onrender.com
+**GitHub Repository:** https://github.com/Nidhi010805/pulse-mini-social-app
 
 ---
 
@@ -45,7 +46,6 @@ Pulse is a "Mini Social Post Application" that supports the full loop of a light
 **Deployment:** Vercel (frontend), Render (backend), MongoDB Atlas (database), Cloudinary (images)
 
 ---
-
 
 ## Project Structure
 
@@ -157,8 +157,8 @@ Authorization: Bearer <token>
 ### 1. Clone and install
 
 ```bash
-git clone <repository-url>
-cd project-root
+git clone https://github.com/Nidhi010805/pulse-mini-social-app.git
+cd pulse-mini-social-app
 
 cd backend
 npm install
@@ -183,7 +183,7 @@ CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 ```
 
-**frontend/.env** (copy from `frontend/.env.example`):
+**frontend/.env** 
 
 ```
 VITE_API_URL=http://localhost:5000/api
@@ -207,40 +207,11 @@ Open `http://localhost:5173` in your browser.
 
 ## Deployment
 
-### MongoDB Atlas Setup
-
-1. Create a free account at [mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas).
-2. Create a new free (M0) cluster.
-3. Under **Database Access**, create a database user with a username and password.
-4. Under **Network Access**, add `0.0.0.0/0` (or Render's IP ranges) so the backend can connect.
-5. Click **Connect → Drivers**, copy the connection string, and replace `<username>`, `<password>`, and the database name.
-6. Use this as `MONGODB_URI` in Render's environment variables.
-
-### Cloudinary Setup
-
-1. Create a free account at [cloudinary.com](https://cloudinary.com).
-2. From the dashboard, copy the **Cloud Name**, **API Key**, and **API Secret**.
-3. Add them as `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` in the backend environment variables (locally and on Render).
-
-### Render Deployment (Backend)
-
-1. Push the project to a public GitHub repository.
-2. On [render.com](https://render.com), click **New → Web Service**.
-3. Connect the GitHub repo and set **Root Directory** to `backend`.
-4. Build Command: `npm install`
-5. Start Command: `npm start`
-6. Add all backend environment variables (`MONGODB_URI`, `JWT_SECRET`, `JWT_EXPIRES_IN`, `CLIENT_URL`, `CLOUDINARY_*`, `NODE_ENV=production`).
-7. Deploy, then copy the generated backend URL (e.g. `https://pulse-api.onrender.com`).
-
-### Vercel Deployment (Frontend)
-
-1. On [vercel.com](https://vercel.com), click **Add New → Project** and import the GitHub repo.
-2. Set **Root Directory** to `frontend`.
-3. Framework Preset: **Vite**.
-4. Add environment variable `VITE_API_URL` set to `https://<your-render-backend>/api`.
-5. Deploy.
-6. `frontend/vercel.json` already includes a rewrite rule so React Router routes (e.g. `/feed`) work correctly on direct load/refresh.
-7. Once deployed, update the backend's `CLIENT_URL` environment variable on Render to the Vercel URL and redeploy the backend so CORS allows it.
+- **MongoDB Atlas:** free M0 cluster, database user created, network access set to `0.0.0.0/0`.
+- **Cloudinary:** free account, `Cloud Name` / `API Key` / `API Secret` from the dashboard.
+- **Backend (Render):** Root Directory `backend`, Build Command `npm install`, Start Command `npm start`, environment variables set as listed above.
+- **Frontend (Vercel):** Root Directory `frontend`, Framework Preset `Vite`, `VITE_API_URL` set to the deployed Render backend URL + `/api`.
+- After both are live, the backend's `CLIENT_URL` is set to the Vercel URL so CORS allows requests from the deployed frontend.
 
 ---
 
@@ -253,8 +224,4 @@ Open `http://localhost:5173` in your browser.
 - Search and hashtag filtering
 - Notification system for likes/comments
 
----
-
-## Author
-
-Built as a submission for the 3W Full Stack Internship Assignment — Round 1.
+-
