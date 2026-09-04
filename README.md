@@ -6,9 +6,8 @@ Users can sign up, log in, create text/image/text+image posts, like and comment 
 
 > UI is inspired by the general concept of a social feed (similar to TaskPlanet's Social Page) but is an original implementation. No proprietary code, branding, logos, or assets were copied.
 
-**Live Website:** [Add Vercel URL]
-**Backend API:** [Add Render URL]
-**GitHub Repository:** [Add repository URL]
+**Live Website:** [https://pulse-mini-social-app.vercel.app]
+
 
 ---
 
@@ -47,17 +46,6 @@ Pulse is a "Mini Social Post Application" that supports the full loop of a light
 
 ---
 
-## Screenshots
-
-> Add screenshots here after running the app locally, e.g.:
->
-> `docs/screenshots/login.png`
-> `docs/screenshots/signup.png`
-> `docs/screenshots/feed.png`
-> `docs/screenshots/feed-mobile.png`
-> `docs/screenshots/comments.png`
-
----
 
 ## Project Structure
 
